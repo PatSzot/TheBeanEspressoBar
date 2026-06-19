@@ -77,7 +77,7 @@
     /* ──────────────────────────────────────────────────── */
     .hero {
       min-height: 100svh;
-      background: var(--color-bg);
+      background: linear-gradient(to bottom, #fff3ee, #e7d1c9);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -88,24 +88,25 @@
     }
 
     .hero__symbol {
-      width: clamp(140px, 22vw, 280px);
+      width: clamp(120px, 20vw, 260px);
       height: auto;
     }
 
     .hero__wordmark {
-      width: clamp(220px, 36vw, 460px);
+      width: clamp(200px, 33vw, 478px);
       height: auto;
     }
 
+    /* 40px / -1.6px tracking — both Figma-exact */
     .hero__sub {
       font-family: var(--font-heritage);
-      font-size: clamp(1.6rem, 3.5vw, 3.25rem);
+      font-size: clamp(1.4rem, 2.78vw, 2.5rem);
       font-weight: 400;
       font-style: normal;
       color: var(--color-text);
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
       line-height: 1.2;
-      margin-top: clamp(1rem, 3vw, 2rem);
+      margin-top: clamp(1rem, 3vw, 2.5rem);
     }
 
     .hero__sub em {
@@ -220,29 +221,30 @@
     .footer {
       background: var(--color-footer-bg);
       color: var(--color-footer-fg);
-      min-height: clamp(340px, 50vw, 600px);
+      min-height: 801px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(2rem, 5vw, 4.5rem);
-      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      gap: 72px;
+      padding: 24px 15px;
       flex-wrap: wrap;
     }
 
+    /* 24px / -0.96px tracking / 204px wide — Figma-exact */
     .footer__tagline {
       font-family: var(--font-heritage);
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(0.95rem, 1.5vw, 1.5rem);
+      font-size: 1.5rem;
       letter-spacing: -0.04em;
       text-align: center;
-      line-height: 1.25;
+      line-height: 1;
       color: var(--color-footer-fg);
-      max-width: 160px;
+      width: 204px;
     }
 
     .footer__logo {
-      width: clamp(180px, 28vw, 340px);
+      width: clamp(240px, 33vw, 478px);
       height: auto;
       flex-shrink: 0;
     }
@@ -300,8 +302,7 @@
         alt="The Bean Espresso Bar"
       >
       <p class="hero__sub reveal">
-        <em>Italian ritual</em> meets<br>
-        Wilton Manors heart
+        <em>Italian ritual</em> meets Wilton Manors heart
       </p>
     </section>
 
@@ -377,7 +378,7 @@
   <footer class="footer" role="contentinfo">
     <p class="footer__tagline">made with love, in sunny Wilton Manors</p>
     <img
-      src="TheBean-Logo-OnDark.svg"
+      src="TheBean-Complete-OnDark.svg"
       class="footer__logo"
       alt="The Bean Espresso Bar"
     >
