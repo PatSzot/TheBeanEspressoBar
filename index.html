@@ -3,361 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Specialty espresso bar in Wilton Manors, FL. Italian heritage, South Florida soul. In-house pastries baked fresh daily.">
+  <meta name="description" content="Specialty espresso bar in Wilton Manors, FL. Italian heritage, South Florida soul.">
   <title>The Bean Espresso Bar — Wilton Manors, FL</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
 
   <style>
-    /* ─── RESET ─────────────────────────────────────── */
+    /* ─── RESET ────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button { cursor: pointer; background: none; border: none; font: inherit; }
 
-    /* ─── TOKENS ─────────────────────────────────────── */
+    /* ─── TOKENS ───────────────────────────────────────── */
     :root {
-      --color-brand:      #C29E90;
-      --color-bg:         #FAF7F4;
-      --color-surface:    #F0EAE5;
-      --color-text:       #1A1410;
-      --color-text-dark:  #3D2B1F;
-      --color-text-muted: #8C7168;
-      --color-hover:      #A6806E;
-      --color-rule:       rgba(194, 158, 144, 0.35);
+      --color-bg:        #E7D1C9;
+      --color-surface:   #FFF9F7;
+      --color-text:      #241F1E;
+      --color-footer-bg: #181514;
+      --color-footer-fg: #E7D1C9;
+      --color-accent:    #C29E90;
+      --color-border:    #241F1E;
 
-      --font-display: 'Bona Nova SC', serif;
-      --font-body:    'Cormorant Garamond', serif;
-      --font-ui:      'Inter', sans-serif;
-
-      --type-hero:    clamp(3.75rem, 10vw, 9rem);
-      --type-display: clamp(2.25rem, 5vw, 4.25rem);
-      --type-heading: clamp(1.4rem, 3vw, 2.1rem);
-      --type-title:   1.2rem;
-      --type-body:    1rem;
-      --type-small:   0.875rem;
-      --type-micro:   0.75rem;
-
-      --tracking-wide:  0.12em;
-      --tracking-wider: 0.2em;
-      --leading-tight:  1.08;
-      --leading-body:   1.75;
+      --font-display: 'Hanken Grotesk', sans-serif;
+      --font-heritage: 'Bona Nova SC', serif;
 
       --grid-max:    1160px;
       --grid-gutter: clamp(1.5rem, 5vw, 4rem);
-      --section-gap: clamp(5rem, 10vw, 9rem);
-
-      --space-2:  0.5rem;
-      --space-3:  0.75rem;
-      --space-4:  1rem;
-      --space-6:  1.5rem;
-      --space-8:  2rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-24: 6rem;
     }
 
-    /* ─── BASE ───────────────────────────────────────── */
+    /* ─── BASE ─────────────────────────────────────────── */
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--color-bg);
       color: var(--color-text);
-      font-family: var(--font-body);
-      font-size: var(--type-body);
-      line-height: var(--leading-body);
+      font-family: var(--font-heritage);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ─── CONTAINER ──────────────────────────────────── */
+    /* ─── CONTAINER ────────────────────────────────────── */
     .container {
       max-width: var(--grid-max);
       margin-inline: auto;
       padding-inline: var(--grid-gutter);
     }
 
-    /* ─── FOCUS STATES ───────────────────────────────── */
+    /* ─── FOCUS ────────────────────────────────────────── */
     :focus-visible {
-      outline: 2px solid var(--color-brand);
+      outline: 2px solid var(--color-accent);
       outline-offset: 2px;
     }
 
-    /* ─────────────────────────────────────────────────── */
-    /* HERO                                                 */
-    /* ─────────────────────────────────────────────────── */
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: var(--space-24);
-      padding-bottom: var(--space-24);
-    }
-    .hero__logo {
-      width: clamp(260px, 45vw, 520px);
-      height: auto;
-      display: block;
-      margin-bottom: var(--space-8);
-    }
-    .hero__body {
-      font-family: var(--font-body);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      font-weight: 300;
-      color: var(--color-text-muted);
-      max-width: 52ch;
-      line-height: 1.65;
-      margin-bottom: var(--space-8);
-    }
-    .hero__hours {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-3);
-      font-family: var(--font-ui);
-      font-size: var(--type-small);
-      font-weight: 300;
-      color: var(--color-text-muted);
-      letter-spacing: 0.04em;
-    }
-    .hero__hours i {
-      font-size: 1rem;
-      color: var(--color-brand);
-    }
-
-    /* ─────────────────────────────────────────────────── */
-    /* STORY                                                */
-    /* ─────────────────────────────────────────────────── */
-    .story { padding-block: var(--space-24); }
-    .story__inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-12);
-    }
-    .story__eyebrow { margin-bottom: var(--space-8); }
-    .story__pull-quote {
-      font-family: var(--font-display);
-      font-size: var(--type-heading);
-      font-style: italic;
-      font-weight: 400;
-      line-height: 1.35;
-      color: var(--color-text);
-      max-width: 36ch;
-      position: relative;
-      padding-left: var(--space-6);
-      border-left: 2px solid var(--color-brand);
-      margin-bottom: var(--space-6);
-    }
-    .story__attribution {
-      font-family: var(--font-ui);
-      font-size: var(--type-micro);
-      font-weight: 300;
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      margin-bottom: var(--space-8);
-    }
-    .story__body p {
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-      font-weight: 300;
-      color: var(--color-text-dark);
-      line-height: 1.8;
-      margin-bottom: var(--space-6);
-    }
-    .story__body p:last-child { margin-bottom: 0; }
-    .story__tag {
-      font-family: var(--font-ui);
-      font-size: var(--type-micro);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--color-text-muted);
-      letter-spacing: 0.06em;
-      text-align: right;
-      margin-top: var(--space-8);
-    }
-
-    /* ─────────────────────────────────────────────────── */
-    /* MENU                                                 */
-    /* ─────────────────────────────────────────────────── */
-    .menu-section { padding-block: var(--space-24); }
-    .menu-section__header {
-      margin-bottom: var(--space-12);
-    }
-    .menu-section__eyebrow { margin-bottom: var(--space-6); }
-    .menu-section__subtitle {
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--color-text-muted);
-      max-width: 52ch;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .menu-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: baseline;
-      gap: var(--space-4);
-      padding-block: var(--space-6);
-      border-bottom: 1px solid #E8DDD8;
-    }
-    .menu-item:last-child { border-bottom: none; }
-    .menu-item__left { display: flex; flex-direction: column; gap: var(--space-2); }
-    .menu-item__name {
-      font-family: var(--font-display);
-      font-size: var(--type-title);
-      font-weight: 400;
-      color: var(--color-text);
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      line-height: 1.3;
-    }
-    .menu-item__name .diamond {
-      margin-top: 1px;
-    }
-    .menu-item__desc {
-      font-size: var(--type-small);
-      font-weight: 300;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      max-width: 54ch;
-    }
-    .menu-item__price {
-      font-family: var(--font-ui);
-      font-size: var(--type-small);
-      font-weight: 300;
-      color: var(--color-text-muted);
-      white-space: nowrap;
-      align-self: start;
-      padding-top: 3px;
-    }
-
-    /* ─────────────────────────────────────────────────── */
-    /* FIND US                                              */
-    /* ─────────────────────────────────────────────────── */
-    .find-us { padding-block: var(--space-24); }
-    .find-us__eyebrow { margin-bottom: var(--space-12); }
-    .find-us__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-12);
-    }
-    .find-us__block { display: flex; flex-direction: column; gap: var(--space-8); }
-    .find-us__item {
-      display: flex;
-      gap: var(--space-4);
-      align-items: flex-start;
-    }
-    .find-us__item i {
-      font-size: 1.25rem;
-      color: var(--color-brand);
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-    .find-us__label {
-      font-family: var(--font-ui);
-      font-size: var(--type-micro);
-      font-weight: 300;
-      letter-spacing: var(--tracking-wide);
-      text-transform: uppercase;
-      color: var(--color-brand);
-      margin-bottom: var(--space-2);
-    }
-    .find-us__value {
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      font-weight: 300;
-      color: var(--color-text-dark);
-      line-height: 1.6;
-    }
-    .find-us__social {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-      padding: var(--space-8);
-      background: var(--color-surface);
-      border: 1px solid #E8DDD8;
-    }
-    .find-us__social-label {
-      font-family: var(--font-ui);
-      font-size: var(--type-micro);
-      font-weight: 300;
-      letter-spacing: var(--tracking-wide);
-      text-transform: uppercase;
-      color: var(--color-brand);
-    }
-    .find-us__social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-3);
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      font-weight: 300;
-      color: var(--color-text);
-      transition: color 0.15s ease-out;
-    }
-    .find-us__social-link i {
-      font-size: 1.4rem;
-      color: var(--color-brand);
-      transition: color 0.15s ease-out;
-    }
-    .find-us__social-link:hover { color: var(--color-brand); }
-    .find-us__social-link:hover i { color: var(--color-hover); }
-    .find-us__social-note {
-      font-size: var(--type-small);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-    }
-
-    /* ─────────────────────────────────────────────────── */
-    /* FOOTER                                               */
-    /* ─────────────────────────────────────────────────── */
-    .footer {
-      padding-block: var(--space-16);
-      border-top: 1px solid var(--color-rule);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-    }
-    .footer__logo {
-      width: 160px;
-      height: auto;
-      display: block;
-      margin-bottom: var(--space-4);
-    }
-    .footer__sub {
-      font-family: var(--font-ui);
-      font-size: var(--type-micro);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--color-text-muted);
-      letter-spacing: 0.05em;
-    }
-    .footer__copyright {
-      font-family: var(--font-ui);
-      font-size: var(--type-micro);
-      font-weight: 300;
-      color: var(--color-text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    /* ─────────────────────────────────────────────────── */
-    /* SCROLL REVEAL                                        */
-    /* ─────────────────────────────────────────────────── */
+    /* ─── SCROLL REVEAL ────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
+      transform: translateY(20px);
       transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     }
     .reveal.visible {
@@ -365,242 +72,248 @@
       transform: translateY(0);
     }
 
-    /* ─────────────────────────────────────────────────── */
-    /* RESPONSIVE                                           */
-    /* ─────────────────────────────────────────────────── */
-    @media (min-width: 640px) {
-      .nav__hamburger { display: none !important; }
-      .nav__links { display: flex !important; }
+    /* ──────────────────────────────────────────────────── */
+    /* HERO                                                  */
+    /* ──────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      background: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(4rem, 10vw, 8rem) var(--grid-gutter);
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      text-align: center;
     }
 
-    @media (max-width: 639px) {
-      .nav__links { display: none; }
-      .nav__hamburger { display: flex; }
+    .hero__symbol {
+      width: clamp(140px, 22vw, 280px);
+      height: auto;
     }
 
+    .hero__wordmark {
+      width: clamp(220px, 36vw, 460px);
+      height: auto;
+    }
+
+    .hero__sub {
+      font-family: var(--font-heritage);
+      font-size: clamp(1.6rem, 3.5vw, 3.25rem);
+      font-weight: 400;
+      font-style: normal;
+      color: var(--color-text);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-top: clamp(1rem, 3vw, 2rem);
+    }
+
+    .hero__sub em {
+      font-style: italic;
+    }
+
+    /* ──────────────────────────────────────────────────── */
+    /* MENU SECTION                                          */
+    /* ──────────────────────────────────────────────────── */
+    .menu-section {
+      background: var(--color-surface);
+      padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 3vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .menu-heading {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 4vw, 3.5rem);
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      text-align: center;
+      border-bottom: 10px solid var(--color-border);
+      width: 100%;
+      padding-bottom: clamp(1rem, 2vw, 1.5rem);
+      line-height: 1;
+    }
+
+    .menu-item {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 5rem);
+      letter-spacing: 0.2em;
+      color: var(--color-text);
+      text-align: center;
+      border-bottom: 10px solid var(--color-border);
+      width: 100%;
+      padding-block: clamp(0.75rem, 1.5vw, 1.25rem);
+      line-height: 1;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    /* ──────────────────────────────────────────────────── */
+    /* FIND US                                               */
+    /* ──────────────────────────────────────────────────── */
+    .find-us {
+      background: var(--color-bg);
+      padding: clamp(4rem, 8vw, 7rem) var(--grid-gutter);
+    }
+
+    .find-us__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+    }
+
+    .find-us__label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+    }
+
+    .find-us__value {
+      font-family: var(--font-heritage);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+
+    .find-us__item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .find-us__item i {
+      font-size: 1.25rem;
+      color: var(--color-text);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .find-us__social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-heritage);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--color-text);
+      transition: opacity 0.15s ease-out;
+    }
+
+    .find-us__social-link:hover { opacity: 0.65; }
+
+    /* ──────────────────────────────────────────────────── */
+    /* FOOTER                                                */
+    /* ──────────────────────────────────────────────────── */
+    .footer {
+      background: var(--color-footer-bg);
+      color: var(--color-footer-fg);
+      min-height: clamp(340px, 50vw, 600px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      flex-wrap: wrap;
+    }
+
+    .footer__tagline {
+      font-family: var(--font-heritage);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(0.95rem, 1.5vw, 1.5rem);
+      letter-spacing: -0.04em;
+      text-align: center;
+      line-height: 1.25;
+      color: var(--color-footer-fg);
+      max-width: 160px;
+    }
+
+    .footer__logo {
+      width: clamp(180px, 28vw, 340px);
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .footer__copyright {
+      display: none; /* hidden — handled by Instagram handle */
+    }
+
+    /* ──────────────────────────────────────────────────── */
+    /* RESPONSIVE                                            */
+    /* ──────────────────────────────────────────────────── */
     @media (min-width: 900px) {
-      .menu-grid {
+      .find-us__grid {
         grid-template-columns: 1fr 1fr;
-        column-gap: var(--space-12);
       }
-      .menu-item:nth-last-child(-n+2) {
-        border-bottom: none;
-      }
-      /* last item in odd-count grid still gets border */
-      .menu-grid.odd-count .menu-item:nth-last-child(1) {
-        border-bottom: none;
-      }
-
-      .find-us__grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ─────────────────────────────────────────────────── */
-    /* REDUCED MOTION                                       */
-    /* ─────────────────────────────────────────────────── */
+    @media (max-width: 599px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .footer__tagline {
+        max-width: 220px;
+      }
+    }
+
+    /* ──────────────────────────────────────────────────── */
+    /* REDUCED MOTION                                        */
+    /* ──────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
+      *, *::before, *::after { transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 
 <body>
+
   <main id="main">
 
     <!-- ── HERO ───────────────────────────────────────── -->
     <section class="hero" aria-label="Hero">
-      <div class="container">
-        <h1>
-          <svg class="hero__logo" viewBox="0 0 478 127" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="The Bean Espresso Bar">
-            <path d="M244.251 0.285359C252.877 0.0838283 265.926 0.310834 270.432 9.45528C275.411 19.5566 272.029 27.1484 262.565 32.0764C275.711 36.4503 279.322 50.9353 271.14 61.4211L270.816 61.7453C268.048 64.5038 264.772 66.2078 260.99 67.1682C253.255 69.133 229.72 68.17 220.51 68.1164C221.74 63.1191 222.466 61.6925 227.762 60.9777L227.766 7.48653C222.564 6.90396 221.556 5.15974 220.578 0.354695C228.433 0.11223 236.387 0.411307 244.251 0.285359ZM263.135 21.0715C265.44 4.2122 247.344 7.91486 237.013 7.52755L236.995 60.9055C243.99 60.9401 257.557 62.5199 262.949 57.4533C267.452 53.218 266.646 44.4555 263.091 39.6691C256.66 33.6424 240.949 38.0151 239.47 35.8147C240.803 27.0292 248.453 29.9005 254.755 28.7512C258.864 28.0048 262.539 25.4198 263.135 21.0715Z" fill="currentColor"/><path d="M425.32 0.238018L428.448 0.19708C435.72 12.8116 444.796 25.804 452.279 38.4123C455.196 43.3309 458.669 48.2338 461.378 53.272C461.195 48.3849 461.35 42.5342 461.353 37.5873L461.35 7.54664C456.169 6.56732 454.906 5.22591 453.542 0.291563C461.324 0.0648413 469.988 0.241184 477.827 0.294715C477.172 5.50302 475.764 6.59884 470.64 7.41756C470.417 27.5108 470.625 48.0039 470.637 68.1286L461.265 68.1569L459.898 65.7669L439.568 33.1883C436.016 27.4887 431.717 20.9358 428.492 15.1261L428.454 60.9648C433.625 61.5694 434.951 63.4493 436.296 68.1191C428.016 68.1916 419.736 68.1853 411.457 68.0971C412.575 62.9833 414.373 61.8119 419.273 60.8483C419.003 43.2585 419.201 25.168 419.188 7.54664C414.061 6.51064 412.719 5.28572 411.457 0.313589C415.944 0.175036 420.804 0.250613 425.32 0.238018Z" fill="currentColor"/><path d="M135.614 0.102631L188.125 0.124695C188.181 5.66678 188.152 11.212 188.038 16.7509C182.175 15.3843 180.073 13.2179 179.312 7.3042C170.421 7.37032 161.529 7.37664 152.637 7.31996L152.624 29.3624C161.337 29.3183 170.049 29.3246 178.761 29.3875C177.753 35.254 174.238 36.7875 168.617 36.7528C163.304 36.7214 157.967 36.6647 152.652 36.6049C152.548 40.6796 152.617 45.0282 152.611 49.1249L152.617 60.9271H179.896C180.623 55.0417 182.84 52.847 188.535 51.685C188.736 56.8933 188.6 62.8605 188.603 68.1223C177.15 68.3176 165.414 68.0562 153.937 68.1759C151.229 68.2042 137.662 68.3428 136.106 67.8704L135.794 67.1493C136.263 62.9928 139.858 61.4561 143.439 60.968L143.396 7.39237C138.316 6.4477 136.704 5.15664 135.614 0.102631Z" fill="currentColor"/><path d="M280.551 0.118403C297.816 -0.102021 315.793 0.0365375 333.074 0.124707L333.036 16.751C327.049 15.315 325.175 13.3659 324.259 7.31682C315.431 7.43018 306.439 7.33887 297.599 7.33258C297.536 14.6758 297.523 22.0223 297.564 29.3687C306.172 29.3403 315.352 29.1671 323.909 29.4285C322.136 35.8554 319.021 36.8284 312.625 36.7497C307.639 36.6899 302.581 36.6616 297.589 36.6238C297.47 40.9378 297.558 45.6454 297.552 49.9909L297.536 60.9082L324.845 60.9365C325.739 55.0764 327.676 52.7462 333.549 51.7323C333.675 57.076 333.584 62.7597 333.59 68.1286C316.65 68.3869 297.344 68.4215 280.441 68.0846C281.946 62.914 283.291 61.9001 288.409 60.82C288.17 43.1798 288.368 25.105 288.368 7.43332C283.26 6.41623 281.72 5.14722 280.551 0.118403Z" fill="currentColor"/><path d="M369.349 0.364014L377.377 0.392343C379.522 6.86966 383.005 15.3119 385.487 21.849L400.616 61.5033C404.597 62.8826 405.221 64.1956 405.734 68.1349C399.108 68.1979 392.485 68.1822 385.861 68.0814C386.576 63.9689 387.077 62.7723 391.143 61.2734C389.883 57.1169 388.123 53.2154 386.897 48.9297C378.882 48.788 370.615 48.9045 362.553 48.8415C367.305 39.3759 374.731 41.24 383.852 41.281C382.901 38.0313 381.216 33.7362 380.035 30.4676C377.963 24.3776 375.519 17.9664 373.32 11.8859C367.088 27.4447 360.953 45.3998 355.07 61.2356L355.34 61.3364C357.809 62.2811 361.148 64.9199 359.989 67.9208C357.45 68.349 343.379 68.2326 340.844 67.9523C339.524 65.0931 343.303 62.3221 345.691 61.5002C348.667 54.8402 352.219 44.8393 354.918 37.877C359.718 25.4923 364.798 12.7896 369.349 0.364014Z" fill="currentColor"/><path d="M9.65688 0.238011C16.3336 0.253756 52.7787 -0.605884 56.0928 1.07879C57.3129 3.43732 56.7513 12.4401 56.6789 15.5071C51.8376 14.3263 49.086 12.7864 48.2019 7.48682C43.195 7.51201 38.1884 7.50884 33.1814 7.46791L33.1714 60.9837C35.5961 61.2104 36.4773 61.5852 38.4671 62.9581C40.0928 64.7719 40.2953 65.8393 40.9073 68.1223C32.6319 68.1853 24.3558 68.179 16.0804 68.1034C17.2892 63.0368 18.9313 61.8182 23.8715 60.9144L23.8441 7.4616C19.2922 7.64739 13.7495 7.44272 9.07959 7.43643C7.3027 12.9313 5.70248 14.1216 0.326746 15.5354C0.287693 12.3834 -0.773972 3.41212 1.15253 1.26141C2.41355 -0.149305 7.58331 0.206522 9.65688 0.238011Z" fill="currentColor"/><path d="M104.364 0.433298C111.74 0.389213 121.963 0.0711709 129.203 0.471083C127.873 5.29522 126.529 6.8508 121.368 7.5782L121.382 60.9964C126.374 61.6135 127.956 63.2793 129.193 68.1098C121.401 68.1791 112.032 68.3932 104.331 68.0846C105.693 63.2951 107.061 61.6136 112.265 60.946L112.22 38.2171C101.502 38.2675 90.783 38.2581 80.0649 38.1856C80.3682 37.2126 80.6703 35.1973 80.875 34.1267C82.3983 32.1366 83.6975 31.2013 86.2724 31.0848C94.8225 30.7069 103.69 31.1761 112.221 31.0124L112.243 7.71674C107.301 6.60517 105.595 5.63845 104.364 0.433298Z" fill="currentColor"/><path d="M62.2644 0.433246C68.3658 0.288396 74.5188 0.4301 80.6248 0.357675C82.5747 0.332483 84.6022 0.282087 86.5297 0.540298L86.8462 1.10397C86.6969 2.38242 86.227 3.60736 85.4797 4.65595C83.9881 6.79406 81.6449 7.20657 79.2993 7.53406L79.3465 29.7622C80.2797 31.217 79.007 32.9426 79.9411 34.4762L80.8749 34.1266C80.6702 35.1973 80.3682 37.2126 80.0649 38.1856L79.6737 38.491C79.6602 39.5742 79.8104 42.4177 79.3437 43.1388L79.293 61.0152C84.2675 61.5442 86.05 63.3738 87.0638 68.116C79.0826 68.327 70.2796 68.1758 62.2531 68.1097C63.7402 62.9927 65.1345 61.8591 70.1962 60.8609C69.96 43.2364 70.136 25.2687 70.142 7.61905C64.8942 6.81608 63.744 5.29517 62.2644 0.433246Z" fill="currentColor"/><path d="M79.3464 29.7623C80.2796 31.2171 79.0069 32.9427 79.941 34.4762L80.8748 34.1267C80.6701 35.1973 80.3681 37.2126 80.0648 38.1856L79.6736 38.491C79.6601 39.5743 79.8103 42.4177 79.3436 43.1388C79.3058 38.68 79.3067 34.2211 79.3464 29.7623Z" fill="currentColor"/><path d="M282.4 94.6429C294.116 93.8339 293.127 102.915 292.973 111.408C292.844 118.37 294.459 124.04 286.283 126.679C274.98 127.438 275.333 119.74 275.563 111.055C275.752 104.03 273.733 97.1747 282.4 94.6429ZM283.928 98.9877C279.415 100.846 280.911 107.327 280.794 111.773C280.684 115.989 279.673 121.49 284.579 122.366C285.433 122.038 287.067 121.414 287.237 120.407C287.801 117.063 287.924 112.758 287.707 109.332C287.436 105.107 289.177 99.923 283.928 98.9877Z" fill="currentColor"/><path d="M320.052 94.9539C327.484 94.7712 337.94 93.6037 336.794 104.877C336.539 107.386 335.421 108.586 333.459 110.044C337.417 113.722 338.069 117.113 336.39 122.177C332.532 127.813 326.205 126.544 320.096 126.469C319.859 116.19 320.042 105.276 320.052 94.9539ZM325.317 112.085L325.311 121.94C327.323 121.921 328.917 122.069 330.709 121.071C332.391 118.262 332.954 114.594 329.78 112.723C328.382 111.902 326.876 112.072 325.317 112.085ZM325.428 99.366C325.254 102.483 325.283 105.188 325.324 108.293C327.245 108.223 328.946 108.34 330.608 107.339C333.72 102.124 330.8 99.4511 325.428 99.366Z" fill="currentColor"/><path d="M169.601 94.954C177.519 94.7745 188.199 93.2795 186.467 106.284C186.11 108.966 184.565 110.664 182.362 112.14C183.76 115.856 185.922 122.624 186.952 126.399L181.703 126.51L180.715 123.439C180.071 121.226 178.199 112.75 175.891 112.598C174.295 114.411 174.772 123.42 174.748 126.446L169.613 126.456C169.327 116.553 169.498 104.889 169.601 94.954ZM174.997 99.413C174.622 101.847 174.79 106.253 174.833 108.876C176.977 108.829 178.442 109.011 180.27 107.884C183.497 102.477 180.707 99.4255 174.997 99.413Z" fill="currentColor"/><path d="M374.372 94.9514C382.198 94.7971 392.85 93.2067 391.213 106.287C390.885 108.888 389.338 110.665 387.149 112.05C388.551 116.77 390.239 121.698 391.728 126.434L386.315 126.469L385.216 122.649C384.513 120.457 383.175 114.261 381.886 112.976C380.58 112.929 381.099 112.72 380.199 113.391C379.078 115.57 379.56 123.298 379.553 126.441L374.372 126.459C374.117 116.446 374.268 104.987 374.372 94.9514ZM379.651 99.4319C379.604 102.562 379.585 105.695 379.588 108.825C382.063 108.829 383.156 109.105 385.149 107.692C387.936 102.061 385.395 99.3753 379.651 99.4319Z" fill="currentColor"/><path d="M357.624 94.9197C359.413 104.751 362.323 116.553 364.483 126.453L359.085 126.456C358.877 125.174 358.549 121.781 357.866 121.034L351.174 121.021C350.796 122.637 350.49 124.781 350.21 126.466L344.922 126.459C347.177 116.011 349.687 105.371 351.765 94.9167L357.624 94.9197ZM354.439 102.559C353.806 106.045 352.336 113.143 352.156 116.392C352.937 117.12 354.355 116.943 355.492 116.918L356.845 116.84C357.289 116.279 357.243 116.534 357.161 115.958C356.855 113.87 355.227 103.801 354.439 102.559Z" fill="currentColor"/><path d="M142.017 94.9226C145.667 94.8376 152.564 94.0852 155.558 96.2702C159.646 99.2554 160.329 106.451 157.264 110.425C154.523 113.977 151.252 112.755 147.505 113.278L147.293 114.011L147.258 126.415L142.075 126.463C141.604 117.101 141.987 104.561 142.017 94.9226ZM147.342 99.3152C147.291 102.577 147.273 105.84 147.288 109.105C149.308 109.064 150.995 109.238 152.684 108.101C154.489 105.11 154.797 101.416 151.152 99.7312C150.229 99.303 148.386 99.3466 147.342 99.3152Z" fill="currentColor"/><path d="M255.224 94.6299C257.428 94.4472 259.416 94.5354 261.293 95.795C263.755 97.4513 267.081 101.517 264.877 104.417C263.711 104.835 261.522 104.681 260.197 104.665C260.064 102.14 259.104 97.9331 255.535 99.1832C250.956 102.754 257.013 108.047 260.143 109.93C267.343 114.27 267.869 123.691 259.142 126.698C251.825 127.18 248.925 124.214 248.689 116.993L253.898 116.946C254.121 119.383 254.786 122.898 258.08 122.28C265.976 116.641 251.529 112.327 249.104 105.462C248.311 103.17 248.506 100.654 249.643 98.5125C250.837 96.2862 252.899 95.2565 255.224 94.6299Z" fill="currentColor"/><path d="M121.049 94.6582C128.653 94.1575 131.116 97.3978 131.437 104.625L126.298 104.665C126.172 102.235 125.136 98.0654 121.841 98.9659C114.686 105.519 129.872 110.006 131.152 115.595C132.429 121.172 130.78 124.749 125.351 126.661C117.937 127.272 115.052 124.271 114.792 116.997C116.508 116.946 118.33 116.962 120.056 116.946C120.17 119.44 121.3 123.392 124.563 122.362C128.248 118.98 125.557 114.846 122.15 113.101C114.613 109.244 110.537 98.0181 121.049 94.6582Z" fill="currentColor"/><path d="M228.517 94.6519C236.066 94.1544 238.614 97.4387 238.894 104.64L233.742 104.669C233.594 102.109 232.589 97.9646 229.106 99.0825C222.523 106.001 237.25 109.83 238.636 115.57C239.949 121.012 238.151 124.749 232.803 126.676C225.33 127.205 222.571 124.321 222.225 117.012C223.811 116.927 225.832 116.962 227.455 116.953C227.674 120.971 230.801 125.373 233.477 120.076C235.061 116.946 230.761 113.652 228.338 112.172C221.047 107.726 219.058 97.7882 228.517 94.6519Z" fill="currentColor"/><path d="M197.352 94.9479C202.499 94.822 207.856 94.9133 213.02 94.9322L213.014 99.4729L202.595 99.4855C202.519 102.455 202.51 105.421 202.57 108.391L209.02 108.403L209.003 112.982L202.59 112.931L202.506 120.064C202.517 120.778 202.554 120.81 202.759 121.506C204.307 122.343 210.74 121.959 213.028 121.953L213.021 126.453L197.334 126.462C197.101 116.464 197.202 104.958 197.352 94.9479Z" fill="currentColor"/><path d="M89.3502 94.948C94.582 94.8724 99.8148 94.8724 105.047 94.9511L105.016 99.4824C101.548 99.4981 98.0791 99.4698 94.6116 99.3974C94.5367 102.37 94.5826 105.421 94.5915 108.4L101.052 108.394C101.101 109.871 101.051 111.486 101.035 112.972L94.593 112.938L94.5426 120.133C94.5748 120.926 94.5628 120.753 94.7625 121.522C96.271 122.321 102.79 121.962 105.029 121.959L105.015 126.453L89.3401 126.456C89.1222 116.332 89.2378 105.081 89.3502 94.948Z" fill="currentColor"/><path d="M424.029 102.956C424.968 103.617 432.17 110.951 433.578 112.339C430.422 115.413 427.276 118.609 424.152 121.723C423.084 120.974 416.093 113.772 414.694 112.355L424.029 102.956Z" fill="currentColor"/><path d="M55.3587 103C56.5977 103.696 63.3324 110.803 64.8551 112.327L55.5584 121.72C54.4331 121.16 47.4146 113.763 46.0449 112.365C49.0734 109.231 52.2773 106.095 55.3587 103Z" fill="currentColor"/>
-          </svg>
-        </h1>
-
-        <p class="hero__body">
-          The Bean Espresso Bar was born from a Toronto upbringing, an Italian family's love of coffee, and the belief that a great café should feel like belonging. On Wilton Drive, we pull each shot with intention, bake every pastry by hand, and open our doors to everyone who walks this neighborhood. Come as you are — stay as long as you like.
-        </p>
-
-        <p class="hero__hours">
-          <i class="ph-thin ph-clock" aria-hidden="true"></i>
-          Mon–Fri 7am–9pm · Sat–Sun 8am–8pm
-        </p>
-      </div>
+      <img
+        src="TheBean-Symbol-OnLight.svg"
+        class="hero__symbol reveal"
+        alt=""
+        aria-hidden="true"
+      >
+      <img
+        src="TheBean-Wordmark-OnLight.svg"
+        class="hero__wordmark reveal"
+        alt="The Bean Espresso Bar"
+      >
+      <p class="hero__sub reveal">
+        <em>Italian ritual</em> meets<br>
+        Wilton Manors heart
+      </p>
     </section>
 
-    <!-- ── STORY ──────────────────────────────────────── -->
-    <section class="story" id="story" aria-label="Our Story">
-      <div class="container">
-        <div class="story__inner">
-          <div class="reveal">
-            <blockquote class="story__pull-quote">
-              "I've always known I wanted to have a business of my own."
-            </blockquote>
-            <p class="story__attribution">— Nadia Cutillo, Founder</p>
-
-            <div class="story__body">
-              <p>
-                The Bean Espresso Bar is the vision of Nadia Cutillo — an entrepreneur originally from Toronto, proudly rooted in Italian heritage, who has built a refined and radically welcoming café on Wilton Drive in the heart of Wilton Manors, Florida. What began as a lifelong dream is now a living expression of culture: every cup pulled, every pastry made in-house, every corner of the space designed to slow you down and make you feel at home.
-              </p>
-              <p>
-                The Bean channels the quiet ritual of the classic Italian caffè — where espresso is not a transaction but a pause, where the bar is a gathering point, where warmth is built into the architecture of the day — and brings it to one of South Florida's most vibrant and inclusive communities. This is not a chain. It is not a formula. It is one person's heritage, made into a place for everyone.
-              </p>
-            </div>
-
-            <p class="story__tag">Toronto roots · Italian heritage · Wilton Manors heart</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── ESPRESSO MENU ───────────────────────────────── -->
-    <section class="menu-section" id="espresso" aria-label="Espresso Bar Menu">
-      <div class="container">
-        <div class="menu-section__header reveal">
-          <p class="menu-section__subtitle">
-            Pulled fresh to order. Available with whole, oat, almond, or soy.
-          </p>
-        </div>
-
-        <ul class="menu-grid" role="list" aria-label="Espresso drinks">
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Espresso</span>
-              <span class="menu-item__desc">A single, precise shot. The benchmark of everything we do.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Doppio</span>
-              <span class="menu-item__desc">Two shots pulled together — full-bodied, rich, and direct.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Macchiato</span>
-              <span class="menu-item__desc">Espresso "marked" with a touch of steamed milk foam.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Cappuccino</span>
-              <span class="menu-item__desc">Equal parts espresso, steamed milk, and velvety microfoam. The Italian way.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Latte</span>
-              <span class="menu-item__desc">Espresso and gently steamed milk — smooth, long, and easy.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Americano</span>
-              <span class="menu-item__desc">Espresso pulled long with hot water. Clean and bold.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">
-                <span class="diamond" aria-label="Signature item" title="Signature"></span>
-                Caffè Affogato
-              </span>
-              <span class="menu-item__desc">A shot of espresso poured over a scoop of gelato. Dessert. Coffee. Both.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-        </ul>
-      </div>
-    </section>
-
-    <!-- ── PASTRIES MENU ───────────────────────────────── -->
-    <section class="menu-section" id="pastries" aria-label="In-House Pastries Menu">
-      <div class="container">
-        <div class="menu-section__header reveal">
-          <p class="menu-section__subtitle">
-            Baked fresh each morning. Rooted in Italian tradition.
-          </p>
-        </div>
-
-        <ul class="menu-grid" role="list" aria-label="Pastries">
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Cornetto</span>
-              <span class="menu-item__desc">The Italian breakfast croissant — lighter than the French, lightly sweet, made for espresso.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Cornetto alla Crema</span>
-              <span class="menu-item__desc">Filled with house pastry cream. The morning standard.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Biscotti</span>
-              <span class="menu-item__desc">Classic almond biscotti, twice-baked and made for dunking.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Sfogliatella</span>
-              <span class="menu-item__desc">Shell-shaped Neapolitan pastry with ricotta and citrus filling.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Ciambella</span>
-              <span class="menu-item__desc">Soft Italian ring cake, subtly lemon-scented. Simple and perfect.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Crostate</span>
-              <span class="menu-item__desc">Open-faced jam tart with buttery shortcrust pastry. Rotating seasonal flavors.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-          <li class="menu-item reveal">
-            <div class="menu-item__left">
-              <span class="menu-item__name">Pane di Casa</span>
-              <span class="menu-item__desc">Housemade bread, sliced and served with butter. Available in the morning.</span>
-            </div>
-            <span class="menu-item__price" aria-label="Price">—</span>
-          </li>
-
-        </ul>
-      </div>
+    <!-- ── MENU ───────────────────────────────────────── -->
+    <section class="menu-section" id="menu" aria-label="Menu">
+      <div class="menu-heading reveal">MENU</div>
+      <div class="menu-item reveal">ESPRESSO</div>
+      <div class="menu-item reveal">DOPPIO</div>
+      <div class="menu-item reveal">MACCHIATO</div>
+      <div class="menu-item reveal">CAPPUCCINO</div>
+      <div class="menu-item reveal">LATTE</div>
+      <div class="menu-item reveal">AMERICANO</div>
+      <div class="menu-item reveal">COFFEE</div>
+      <div class="menu-item reveal">AFFAGATO</div>
     </section>
 
     <!-- ── FIND US ─────────────────────────────────────── -->
@@ -608,8 +321,7 @@
       <div class="container">
         <div class="find-us__grid">
 
-          <div class="find-us__block reveal">
-
+          <div class="reveal">
             <div class="find-us__item">
               <i class="ph-thin ph-map-pin" aria-hidden="true"></i>
               <div>
@@ -620,7 +332,9 @@
                 </address>
               </div>
             </div>
+          </div>
 
+          <div class="reveal">
             <div class="find-us__item">
               <i class="ph-thin ph-clock" aria-hidden="true"></i>
               <div>
@@ -631,24 +345,24 @@
                 </p>
               </div>
             </div>
-
           </div>
 
-          <div class="find-us__social reveal">
-            <p class="find-us__social-label">Follow Along</p>
-            <a
-              class="find-us__social-link"
-              href="https://www.instagram.com/thebeanespressobar"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="The Bean Espresso Bar on Instagram"
-            >
+          <div class="reveal">
+            <div class="find-us__item">
               <i class="ph-thin ph-instagram-logo" aria-hidden="true"></i>
-              @thebeanespressobar
-            </a>
-            <p class="find-us__social-note">
-              Daily specials, seasonal pastries, and a little bit of Wilton Drive life — all on Instagram.
-            </p>
+              <div>
+                <p class="find-us__label">Instagram</p>
+                <a
+                  class="find-us__social-link"
+                  href="https://www.instagram.com/thebeanespressobar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="The Bean Espresso Bar on Instagram"
+                >
+                  @thebeanespressobar
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -659,15 +373,25 @@
 
   <!-- ── FOOTER ─────────────────────────────────────── -->
   <footer class="footer" role="contentinfo">
-    <svg class="footer__logo" viewBox="0 0 478 127" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="The Bean Espresso Bar">
-      <path d="M244.251 0.285359C252.877 0.0838283 265.926 0.310834 270.432 9.45528C275.411 19.5566 272.029 27.1484 262.565 32.0764C275.711 36.4503 279.322 50.9353 271.14 61.4211L270.816 61.7453C268.048 64.5038 264.772 66.2078 260.99 67.1682C253.255 69.133 229.72 68.17 220.51 68.1164C221.74 63.1191 222.466 61.6925 227.762 60.9777L227.766 7.48653C222.564 6.90396 221.556 5.15974 220.578 0.354695C228.433 0.11223 236.387 0.411307 244.251 0.285359ZM263.135 21.0715C265.44 4.2122 247.344 7.91486 237.013 7.52755L236.995 60.9055C243.99 60.9401 257.557 62.5199 262.949 57.4533C267.452 53.218 266.646 44.4555 263.091 39.6691C256.66 33.6424 240.949 38.0151 239.47 35.8147C240.803 27.0292 248.453 29.9005 254.755 28.7512C258.864 28.0048 262.539 25.4198 263.135 21.0715Z" fill="currentColor"/><path d="M425.32 0.238018L428.448 0.19708C435.72 12.8116 444.796 25.804 452.279 38.4123C455.196 43.3309 458.669 48.2338 461.378 53.272C461.195 48.3849 461.35 42.5342 461.353 37.5873L461.35 7.54664C456.169 6.56732 454.906 5.22591 453.542 0.291563C461.324 0.0648413 469.988 0.241184 477.827 0.294715C477.172 5.50302 475.764 6.59884 470.64 7.41756C470.417 27.5108 470.625 48.0039 470.637 68.1286L461.265 68.1569L459.898 65.7669L439.568 33.1883C436.016 27.4887 431.717 20.9358 428.492 15.1261L428.454 60.9648C433.625 61.5694 434.951 63.4493 436.296 68.1191C428.016 68.1916 419.736 68.1853 411.457 68.0971C412.575 62.9833 414.373 61.8119 419.273 60.8483C419.003 43.2585 419.201 25.168 419.188 7.54664C414.061 6.51064 412.719 5.28572 411.457 0.313589C415.944 0.175036 420.804 0.250613 425.32 0.238018Z" fill="currentColor"/><path d="M135.614 0.102631L188.125 0.124695C188.181 5.66678 188.152 11.212 188.038 16.7509C182.175 15.3843 180.073 13.2179 179.312 7.3042C170.421 7.37032 161.529 7.37664 152.637 7.31996L152.624 29.3624C161.337 29.3183 170.049 29.3246 178.761 29.3875C177.753 35.254 174.238 36.7875 168.617 36.7528C163.304 36.7214 157.967 36.6647 152.652 36.6049C152.548 40.6796 152.617 45.0282 152.611 49.1249L152.617 60.9271H179.896C180.623 55.0417 182.84 52.847 188.535 51.685C188.736 56.8933 188.6 62.8605 188.603 68.1223C177.15 68.3176 165.414 68.0562 153.937 68.1759C151.229 68.2042 137.662 68.3428 136.106 67.8704L135.794 67.1493C136.263 62.9928 139.858 61.4561 143.439 60.968L143.396 7.39237C138.316 6.4477 136.704 5.15664 135.614 0.102631Z" fill="currentColor"/><path d="M280.551 0.118403C297.816 -0.102021 315.793 0.0365375 333.074 0.124707L333.036 16.751C327.049 15.315 325.175 13.3659 324.259 7.31682C315.431 7.43018 306.439 7.33887 297.599 7.33258C297.536 14.6758 297.523 22.0223 297.564 29.3687C306.172 29.3403 315.352 29.1671 323.909 29.4285C322.136 35.8554 319.021 36.8284 312.625 36.7497C307.639 36.6899 302.581 36.6616 297.589 36.6238C297.47 40.9378 297.558 45.6454 297.552 49.9909L297.536 60.9082L324.845 60.9365C325.739 55.0764 327.676 52.7462 333.549 51.7323C333.675 57.076 333.584 62.7597 333.59 68.1286C316.65 68.3869 297.344 68.4215 280.441 68.0846C281.946 62.914 283.291 61.9001 288.409 60.82C288.17 43.1798 288.368 25.105 288.368 7.43332C283.26 6.41623 281.72 5.14722 280.551 0.118403Z" fill="currentColor"/><path d="M369.349 0.364014L377.377 0.392343C379.522 6.86966 383.005 15.3119 385.487 21.849L400.616 61.5033C404.597 62.8826 405.221 64.1956 405.734 68.1349C399.108 68.1979 392.485 68.1822 385.861 68.0814C386.576 63.9689 387.077 62.7723 391.143 61.2734C389.883 57.1169 388.123 53.2154 386.897 48.9297C378.882 48.788 370.615 48.9045 362.553 48.8415C367.305 39.3759 374.731 41.24 383.852 41.281C382.901 38.0313 381.216 33.7362 380.035 30.4676C377.963 24.3776 375.519 17.9664 373.32 11.8859C367.088 27.4447 360.953 45.3998 355.07 61.2356L355.34 61.3364C357.809 62.2811 361.148 64.9199 359.989 67.9208C357.45 68.349 343.379 68.2326 340.844 67.9523C339.524 65.0931 343.303 62.3221 345.691 61.5002C348.667 54.8402 352.219 44.8393 354.918 37.877C359.718 25.4923 364.798 12.7896 369.349 0.364014Z" fill="currentColor"/><path d="M9.65688 0.238011C16.3336 0.253756 52.7787 -0.605884 56.0928 1.07879C57.3129 3.43732 56.7513 12.4401 56.6789 15.5071C51.8376 14.3263 49.086 12.7864 48.2019 7.48682C43.195 7.51201 38.1884 7.50884 33.1814 7.46791L33.1714 60.9837C35.5961 61.2104 36.4773 61.5852 38.4671 62.9581C40.0928 64.7719 40.2953 65.8393 40.9073 68.1223C32.6319 68.1853 24.3558 68.179 16.0804 68.1034C17.2892 63.0368 18.9313 61.8182 23.8715 60.9144L23.8441 7.4616C19.2922 7.64739 13.7495 7.44272 9.07959 7.43643C7.3027 12.9313 5.70248 14.1216 0.326746 15.5354C0.287693 12.3834 -0.773972 3.41212 1.15253 1.26141C2.41355 -0.149305 7.58331 0.206522 9.65688 0.238011Z" fill="currentColor"/><path d="M104.364 0.433298C111.74 0.389213 121.963 0.0711709 129.203 0.471083C127.873 5.29522 126.529 6.8508 121.368 7.5782L121.382 60.9964C126.374 61.6135 127.956 63.2793 129.193 68.1098C121.401 68.1791 112.032 68.3932 104.331 68.0846C105.693 63.2951 107.061 61.6136 112.265 60.946L112.22 38.2171C101.502 38.2675 90.783 38.2581 80.0649 38.1856C80.3682 37.2126 80.6703 35.1973 80.875 34.1267C82.3983 32.1366 83.6975 31.2013 86.2724 31.0848C94.8225 30.7069 103.69 31.1761 112.221 31.0124L112.243 7.71674C107.301 6.60517 105.595 5.63845 104.364 0.433298Z" fill="currentColor"/><path d="M62.2644 0.433246C68.3658 0.288396 74.5188 0.4301 80.6248 0.357675C82.5747 0.332483 84.6022 0.282087 86.5297 0.540298L86.8462 1.10397C86.6969 2.38242 86.227 3.60736 85.4797 4.65595C83.9881 6.79406 81.6449 7.20657 79.2993 7.53406L79.3465 29.7622C80.2797 31.217 79.007 32.9426 79.9411 34.4762L80.8749 34.1266C80.6702 35.1973 80.3682 37.2126 80.0649 38.1856L79.6737 38.491C79.6602 39.5742 79.8104 42.4177 79.3437 43.1388L79.293 61.0152C84.2675 61.5442 86.05 63.3738 87.0638 68.116C79.0826 68.327 70.2796 68.1758 62.2531 68.1097C63.7402 62.9927 65.1345 61.8591 70.1962 60.8609C69.96 43.2364 70.136 25.2687 70.142 7.61905C64.8942 6.81608 63.744 5.29517 62.2644 0.433246Z" fill="currentColor"/><path d="M79.3464 29.7623C80.2796 31.2171 79.0069 32.9427 79.941 34.4762L80.8748 34.1267C80.6701 35.1973 80.3681 37.2126 80.0648 38.1856L79.6736 38.491C79.6601 39.5743 79.8103 42.4177 79.3436 43.1388C79.3058 38.68 79.3067 34.2211 79.3464 29.7623Z" fill="currentColor"/><path d="M282.4 94.6429C294.116 93.8339 293.127 102.915 292.973 111.408C292.844 118.37 294.459 124.04 286.283 126.679C274.98 127.438 275.333 119.74 275.563 111.055C275.752 104.03 273.733 97.1747 282.4 94.6429ZM283.928 98.9877C279.415 100.846 280.911 107.327 280.794 111.773C280.684 115.989 279.673 121.49 284.579 122.366C285.433 122.038 287.067 121.414 287.237 120.407C287.801 117.063 287.924 112.758 287.707 109.332C287.436 105.107 289.177 99.923 283.928 98.9877Z" fill="currentColor"/><path d="M320.052 94.9539C327.484 94.7712 337.94 93.6037 336.794 104.877C336.539 107.386 335.421 108.586 333.459 110.044C337.417 113.722 338.069 117.113 336.39 122.177C332.532 127.813 326.205 126.544 320.096 126.469C319.859 116.19 320.042 105.276 320.052 94.9539ZM325.317 112.085L325.311 121.94C327.323 121.921 328.917 122.069 330.709 121.071C332.391 118.262 332.954 114.594 329.78 112.723C328.382 111.902 326.876 112.072 325.317 112.085ZM325.428 99.366C325.254 102.483 325.283 105.188 325.324 108.293C327.245 108.223 328.946 108.34 330.608 107.339C333.72 102.124 330.8 99.4511 325.428 99.366Z" fill="currentColor"/><path d="M169.601 94.954C177.519 94.7745 188.199 93.2795 186.467 106.284C186.11 108.966 184.565 110.664 182.362 112.14C183.76 115.856 185.922 122.624 186.952 126.399L181.703 126.51L180.715 123.439C180.071 121.226 178.199 112.75 175.891 112.598C174.295 114.411 174.772 123.42 174.748 126.446L169.613 126.456C169.327 116.553 169.498 104.889 169.601 94.954ZM174.997 99.413C174.622 101.847 174.79 106.253 174.833 108.876C176.977 108.829 178.442 109.011 180.27 107.884C183.497 102.477 180.707 99.4255 174.997 99.413Z" fill="currentColor"/><path d="M374.372 94.9514C382.198 94.7971 392.85 93.2067 391.213 106.287C390.885 108.888 389.338 110.665 387.149 112.05C388.551 116.77 390.239 121.698 391.728 126.434L386.315 126.469L385.216 122.649C384.513 120.457 383.175 114.261 381.886 112.976C380.58 112.929 381.099 112.72 380.199 113.391C379.078 115.57 379.56 123.298 379.553 126.441L374.372 126.459C374.117 116.446 374.268 104.987 374.372 94.9514ZM379.651 99.4319C379.604 102.562 379.585 105.695 379.588 108.825C382.063 108.829 383.156 109.105 385.149 107.692C387.936 102.061 385.395 99.3753 379.651 99.4319Z" fill="currentColor"/><path d="M357.624 94.9197C359.413 104.751 362.323 116.553 364.483 126.453L359.085 126.456C358.877 125.174 358.549 121.781 357.866 121.034L351.174 121.021C350.796 122.637 350.49 124.781 350.21 126.466L344.922 126.459C347.177 116.011 349.687 105.371 351.765 94.9167L357.624 94.9197ZM354.439 102.559C353.806 106.045 352.336 113.143 352.156 116.392C352.937 117.12 354.355 116.943 355.492 116.918L356.845 116.84C357.289 116.279 357.243 116.534 357.161 115.958C356.855 113.87 355.227 103.801 354.439 102.559Z" fill="currentColor"/><path d="M142.017 94.9226C145.667 94.8376 152.564 94.0852 155.558 96.2702C159.646 99.2554 160.329 106.451 157.264 110.425C154.523 113.977 151.252 112.755 147.505 113.278L147.293 114.011L147.258 126.415L142.075 126.463C141.604 117.101 141.987 104.561 142.017 94.9226ZM147.342 99.3152C147.291 102.577 147.273 105.84 147.288 109.105C149.308 109.064 150.995 109.238 152.684 108.101C154.489 105.11 154.797 101.416 151.152 99.7312C150.229 99.303 148.386 99.3466 147.342 99.3152Z" fill="currentColor"/><path d="M255.224 94.6299C257.428 94.4472 259.416 94.5354 261.293 95.795C263.755 97.4513 267.081 101.517 264.877 104.417C263.711 104.835 261.522 104.681 260.197 104.665C260.064 102.14 259.104 97.9331 255.535 99.1832C250.956 102.754 257.013 108.047 260.143 109.93C267.343 114.27 267.869 123.691 259.142 126.698C251.825 127.18 248.925 124.214 248.689 116.993L253.898 116.946C254.121 119.383 254.786 122.898 258.08 122.28C265.976 116.641 251.529 112.327 249.104 105.462C248.311 103.17 248.506 100.654 249.643 98.5125C250.837 96.2862 252.899 95.2565 255.224 94.6299Z" fill="currentColor"/><path d="M121.049 94.6582C128.653 94.1575 131.116 97.3978 131.437 104.625L126.298 104.665C126.172 102.235 125.136 98.0654 121.841 98.9659C114.686 105.519 129.872 110.006 131.152 115.595C132.429 121.172 130.78 124.749 125.351 126.661C117.937 127.272 115.052 124.271 114.792 116.997C116.508 116.946 118.33 116.962 120.056 116.946C120.17 119.44 121.3 123.392 124.563 122.362C128.248 118.98 125.557 114.846 122.15 113.101C114.613 109.244 110.537 98.0181 121.049 94.6582Z" fill="currentColor"/><path d="M228.517 94.6519C236.066 94.1544 238.614 97.4387 238.894 104.64L233.742 104.669C233.594 102.109 232.589 97.9646 229.106 99.0825C222.523 106.001 237.25 109.83 238.636 115.57C239.949 121.012 238.151 124.749 232.803 126.676C225.33 127.205 222.571 124.321 222.225 117.012C223.811 116.927 225.832 116.962 227.455 116.953C227.674 120.971 230.801 125.373 233.477 120.076C235.061 116.946 230.761 113.652 228.338 112.172C221.047 107.726 219.058 97.7882 228.517 94.6519Z" fill="currentColor"/><path d="M197.352 94.9479C202.499 94.822 207.856 94.9133 213.02 94.9322L213.014 99.4729L202.595 99.4855C202.519 102.455 202.51 105.421 202.57 108.391L209.02 108.403L209.003 112.982L202.59 112.931L202.506 120.064C202.517 120.778 202.554 120.81 202.759 121.506C204.307 122.343 210.74 121.959 213.028 121.953L213.021 126.453L197.334 126.462C197.101 116.464 197.202 104.958 197.352 94.9479Z" fill="currentColor"/><path d="M89.3502 94.948C94.582 94.8724 99.8148 94.8724 105.047 94.9511L105.016 99.4824C101.548 99.4981 98.0791 99.4698 94.6116 99.3974C94.5367 102.37 94.5826 105.421 94.5915 108.4L101.052 108.394C101.101 109.871 101.051 111.486 101.035 112.972L94.593 112.938L94.5426 120.133C94.5748 120.926 94.5628 120.753 94.7625 121.522C96.271 122.321 102.79 121.962 105.029 121.959L105.015 126.453L89.3401 126.456C89.1222 116.332 89.2378 105.081 89.3502 94.948Z" fill="currentColor"/><path d="M424.029 102.956C424.968 103.617 432.17 110.951 433.578 112.339C430.422 115.413 427.276 118.609 424.152 121.723C423.084 120.974 416.093 113.772 414.694 112.355L424.029 102.956Z" fill="currentColor"/><path d="M55.3587 103C56.5977 103.696 63.3324 110.803 64.8551 112.327L55.5584 121.72C54.4331 121.16 47.4146 113.763 46.0449 112.365C49.0734 109.231 52.2773 106.095 55.3587 103Z" fill="currentColor"/>
-    </svg>
-    <p class="footer__sub">Espresso Bar · Wilton Manors</p>
-    <p class="footer__copyright">© 2026 The Bean Espresso Bar. All rights reserved.</p>
+    <p class="footer__tagline">made with love, in sunny Wilton Manors</p>
+    <img
+      src="TheBean-Logo-OnDark.svg"
+      class="footer__logo"
+      alt="The Bean Espresso Bar"
+    >
+    <p class="footer__tagline">
+      <a
+        href="https://www.instagram.com/thebeanespressobar"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="The Bean on Instagram"
+        style="color:inherit;"
+      >@TheBeanEspressoBar</a>
+    </p>
   </footer>
 
   <script>
-    // ── SCROLL REVEAL ───────────────────────────────────
+    // ── SCROLL REVEAL ─────────────────────────────────────
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -676,13 +400,13 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     } else {
-      // Fallback: show everything
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
     }
   </script>
+
 </body>
 </html>
