@@ -235,14 +235,43 @@
     /* RESPONSIVE                                            */
     /* ──────────────────────────────────────────────────── */
     @media (max-width: 599px) {
+      :root {
+        --grid-gutter: 1rem;
+      }
+
+      .hero {
+        padding-inline: 1rem;
+      }
+
+      .menu-section {
+        padding-inline: 1rem;
+      }
+
       .footer {
         flex-direction: column;
         align-items: center;
-        gap: 2.5rem;
+        gap: 3rem;
+        padding: 4rem 1rem;
+        text-align: center;
       }
 
       .footer__tagline {
         max-width: 220px;
+      }
+
+      .footer__info {
+        align-items: center;
+        gap: 2rem;
+        width: auto;
+      }
+
+      .footer__info-item {
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer__info-value {
+        text-align: center;
       }
     }
 
