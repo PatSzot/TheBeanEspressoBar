@@ -276,6 +276,9 @@
       .hero {
         padding-inline: 1rem;
         gap: 0;
+        min-height: 160vh;
+        justify-content: flex-start;
+        padding-top: clamp(4rem, 12vh, 7rem);
       }
 
       .hero__symbol {
@@ -289,7 +292,9 @@
       }
 
       .hero__sub {
-        font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+        font-size: 32px;
+        letter-spacing: -1.28px;
+        max-width: 280px;
       }
 
       .menu-section {
@@ -305,7 +310,16 @@
       .menu-item {
         font-size: 40px;
         letter-spacing: 4.4px;
-        height: 48px;
+        height: 40px;
+        border-bottom-width: 6px;
+      }
+
+      .menu-heading {
+        border-bottom-width: 6px;
+      }
+
+      .menu-spacer {
+        border-bottom-width: 6px;
       }
 
       .menu-pastries {
@@ -401,8 +415,47 @@
       top: 120vh;
     }
 
-    @media (max-width: 767px) {
-      .parallax-photo { display: none; }
+    /* ── Mobile parallax — sizes/positions from Figma 3215:1028 (375px canvas) ── */
+    @media (max-width: 599px) {
+      .parallax-photo {
+        border-width: 6px;     /* Figma: border-6 on mobile */
+      }
+
+      /* Figma: left:134px top:625px w:332px h:216px — bleeds off right edge intentionally */
+      .photo-1 {
+        width: 88.5vw;
+        aspect-ratio: 332 / 216;
+        left: 35vw;
+        top: 77vh;
+        right: auto;
+      }
+
+      /* Figma: left:12px top:1003px w:186px h:216px */
+      .photo-2 {
+        width: 49.6vw;
+        aspect-ratio: 186 / 216;
+        left: 3.2vw;
+        top: 124vh;
+        right: auto;
+      }
+
+      /* Figma ParralaxImage3: right side, upper menu section */
+      .photo-4 {
+        width: 86.4vw;
+        aspect-ratio: 324 / 322;
+        right: -5%;
+        left: auto;
+        top: 148vh;
+      }
+
+      /* Figma ParralaxImage4: left side, lower menu section */
+      .photo-3 {
+        width: 62.4vw;
+        aspect-ratio: 234 / 151;
+        left: -1%;
+        top: 198vh;
+        right: auto;
+      }
     }
 
     /* ──────────────────────────────────────────────────── */
