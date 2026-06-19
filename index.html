@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Specialty espresso bar in Wilton Manors, FL. Italian heritage, South Florida soul. In-house pastries baked fresh daily.">
+  <title>The Bean Espresso Bar — Wilton Manors, FL</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
+
+  <style>
+    /* ─── RESET ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; background: none; border: none; font: inherit; }
+
+    /* ─── TOKENS ─────────────────────────────────────── */
+    :root {
+      --color-brand:      #C29E90;
+      --color-bg:         #FAF7F4;
+      --color-surface:    #F0EAE5;
+      --color-text:       #1A1410;
+      --color-text-dark:  #3D2B1F;
+      --color-text-muted: #8C7168;
+      --color-hover:      #A6806E;
+      --color-rule:       rgba(194, 158, 144, 0.35);
+
+      --font-display: 'Bona Nova SC', serif;
+      --font-body:    'Cormorant Garamond', serif;
+      --font-ui:      'Inter', sans-serif;
+
+      --type-hero:    clamp(3.75rem, 10vw, 9rem);
+      --type-display: clamp(2.25rem, 5vw, 4.25rem);
+      --type-heading: clamp(1.4rem, 3vw, 2.1rem);
+      --type-title:   1.2rem;
+      --type-body:    1rem;
+      --type-small:   0.875rem;
+      --type-micro:   0.75rem;
+
+      --tracking-wide:  0.12em;
+      --tracking-wider: 0.2em;
+      --leading-tight:  1.08;
+      --leading-body:   1.75;
+
+      --grid-max:    1160px;
+      --grid-gutter: clamp(1.5rem, 5vw, 4rem);
+      --section-gap: clamp(5rem, 10vw, 9rem);
+
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-24: 6rem;
+    }
+
+    /* ─── BASE ───────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--type-body);
+      line-height: var(--leading-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── SKIP LINK ──────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-4);
+      background: var(--color-brand);
+      color: #fff;
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-ui);
+      font-size: var(--type-small);
+      border-radius: 0 0 4px 4px;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; outline: none; }
+
+    /* ─── CONTAINER ──────────────────────────────────── */
+    .container {
+      max-width: var(--grid-max);
+      margin-inline: auto;
+      padding-inline: var(--grid-gutter);
+    }
+
+    /* ─── DIAMOND ────────────────────────────────────── */
+    .diamond {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-brand);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+    .diamond--large {
+      width: 10px;
+      height: 10px;
+    }
+    .diamond--outline {
+      background: transparent;
+      border: 1.5px solid var(--color-brand);
+    }
+
+    /* ─── EYEBROW ────────────────────────────────────── */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-brand);
+    }
+
+    /* ─── SECTION RULE ───────────────────────────────── */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-block: var(--section-gap);
+    }
+    .section-rule .rule-line {
+      flex: 1;
+      border: none;
+      border-top: 1px solid var(--color-rule);
+    }
+
+    /* ─── FOCUS STATES ───────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 2px;
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* NAV                                                  */
+    /* ─────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding-block: var(--space-4);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      background: var(--color-bg);
+      box-shadow: 0 1px 0 var(--color-rule);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .nav__logo-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--color-text);
+    }
+    .nav__logo-sub {
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+    .nav__links {
+      display: flex;
+      list-style: none;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    .nav__links a {
+      font-family: var(--font-ui);
+      font-size: var(--type-small);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--color-text-dark);
+      transition: color 0.15s ease-out;
+    }
+    .nav__links a:hover { color: var(--color-brand); }
+
+    /* Hamburger */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: var(--space-2);
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--color-text);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav__hamburger[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .nav__mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      padding-block: var(--space-4);
+      border-top: 1px solid var(--color-rule);
+      margin-top: var(--space-4);
+    }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a {
+      font-family: var(--font-ui);
+      font-size: var(--type-small);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--color-text-dark);
+      padding-block: var(--space-3);
+      border-bottom: 1px solid var(--color-rule);
+      transition: color 0.15s ease-out;
+    }
+    .nav__mobile a:last-child { border-bottom: none; }
+    .nav__mobile a:hover { color: var(--color-brand); }
+
+    /* ─────────────────────────────────────────────────── */
+    /* HERO                                                 */
+    /* ─────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: clamp(7rem, 14vw, 11rem);
+      padding-bottom: var(--space-24);
+    }
+    .hero__eyebrow {
+      margin-bottom: var(--space-8);
+    }
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: var(--type-hero);
+      font-weight: 400;
+      line-height: var(--leading-tight);
+      letter-spacing: 0.015em;
+      color: var(--color-text);
+      max-width: 14ch;
+      margin-bottom: var(--space-8);
+    }
+    .hero__ornament {
+      margin-bottom: var(--space-8);
+    }
+    .hero__body {
+      font-family: var(--font-body);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      max-width: 52ch;
+      line-height: 1.65;
+      margin-bottom: var(--space-8);
+    }
+    .hero__hours {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-ui);
+      font-size: var(--type-small);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+    }
+    .hero__hours i {
+      font-size: 1rem;
+      color: var(--color-brand);
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* STORY                                                */
+    /* ─────────────────────────────────────────────────── */
+    .story { padding-block: var(--space-24); }
+    .story__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+    .story__eyebrow { margin-bottom: var(--space-8); }
+    .story__pull-quote {
+      font-family: var(--font-display);
+      font-size: var(--type-heading);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text);
+      max-width: 36ch;
+      position: relative;
+      padding-left: var(--space-6);
+      border-left: 2px solid var(--color-brand);
+      margin-bottom: var(--space-6);
+    }
+    .story__attribution {
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      margin-bottom: var(--space-8);
+    }
+    .story__body p {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: var(--color-text-dark);
+      line-height: 1.8;
+      margin-bottom: var(--space-6);
+    }
+    .story__body p:last-child { margin-bottom: 0; }
+    .story__tag {
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-muted);
+      letter-spacing: 0.06em;
+      text-align: right;
+      margin-top: var(--space-8);
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* MENU                                                 */
+    /* ─────────────────────────────────────────────────── */
+    .menu-section { padding-block: var(--space-24); }
+    .menu-section__header {
+      margin-bottom: var(--space-12);
+    }
+    .menu-section__eyebrow { margin-bottom: var(--space-6); }
+    .menu-section__subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      max-width: 52ch;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: var(--space-4);
+      padding-block: var(--space-6);
+      border-bottom: 1px solid #E8DDD8;
+    }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item__left { display: flex; flex-direction: column; gap: var(--space-2); }
+    .menu-item__name {
+      font-family: var(--font-display);
+      font-size: var(--type-title);
+      font-weight: 400;
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      line-height: 1.3;
+    }
+    .menu-item__name .diamond {
+      margin-top: 1px;
+    }
+    .menu-item__desc {
+      font-size: var(--type-small);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      max-width: 54ch;
+    }
+    .menu-item__price {
+      font-family: var(--font-ui);
+      font-size: var(--type-small);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      align-self: start;
+      padding-top: 3px;
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* FIND US                                              */
+    /* ─────────────────────────────────────────────────── */
+    .find-us { padding-block: var(--space-24); }
+    .find-us__eyebrow { margin-bottom: var(--space-12); }
+    .find-us__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+    .find-us__block { display: flex; flex-direction: column; gap: var(--space-8); }
+    .find-us__item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .find-us__item i {
+      font-size: 1.25rem;
+      color: var(--color-brand);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .find-us__label {
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-brand);
+      margin-bottom: var(--space-2);
+    }
+    .find-us__value {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      font-weight: 300;
+      color: var(--color-text-dark);
+      line-height: 1.6;
+    }
+    .find-us__social {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      padding: var(--space-8);
+      background: var(--color-surface);
+      border: 1px solid #E8DDD8;
+    }
+    .find-us__social-label {
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-brand);
+    }
+    .find-us__social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      font-weight: 300;
+      color: var(--color-text);
+      transition: color 0.15s ease-out;
+    }
+    .find-us__social-link i {
+      font-size: 1.4rem;
+      color: var(--color-brand);
+      transition: color 0.15s ease-out;
+    }
+    .find-us__social-link:hover { color: var(--color-brand); }
+    .find-us__social-link:hover i { color: var(--color-hover); }
+    .find-us__social-note {
+      font-size: var(--type-small);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* FOOTER                                               */
+    /* ─────────────────────────────────────────────────── */
+    .footer {
+      padding-block: var(--space-16);
+      border-top: 1px solid var(--color-rule);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .footer__name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--color-text);
+    }
+    .footer__sub {
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+    .footer__diamonds {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      margin-block: var(--space-2);
+    }
+    .footer__copyright {
+      font-family: var(--font-ui);
+      font-size: var(--type-micro);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* SCROLL REVEAL                                        */
+    /* ─────────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* RESPONSIVE                                           */
+    /* ─────────────────────────────────────────────────── */
+    @media (min-width: 640px) {
+      .nav__hamburger { display: none !important; }
+      .nav__links { display: flex !important; }
+    }
+
+    @media (max-width: 639px) {
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
+    }
+
+    @media (min-width: 900px) {
+      .menu-grid {
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--space-12);
+      }
+      .menu-item:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+      /* last item in odd-count grid still gets border */
+      .menu-grid.odd-count .menu-item:nth-last-child(1) {
+        border-bottom: none;
+      }
+
+      .find-us__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* REDUCED MOTION                                       */
+    /* ─────────────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── NAV ─────────────────────────────────────────── -->
+  <header class="nav" id="nav" role="banner">
+    <div class="container">
+      <nav class="nav__inner" aria-label="Main navigation">
+        <a href="#" class="nav__logo" aria-label="The Bean Espresso Bar — home">
+          <span class="nav__logo-name">THE BEAN</span>
+          <span class="nav__logo-sub">Espresso Bar · Wilton Manors</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="#espresso">Menu</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#find-us">Find Us</a></li>
+        </ul>
+
+        <button
+          class="nav__hamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+
+      <nav class="nav__mobile" id="mobile-nav" aria-label="Mobile navigation">
+        <a href="#espresso">Menu</a>
+        <a href="#story">Our Story</a>
+        <a href="#find-us">Find Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ── HERO ───────────────────────────────────────── -->
+    <section class="hero" aria-label="Hero">
+      <div class="container">
+        <p class="eyebrow hero__eyebrow">
+          <span class="diamond" aria-hidden="true"></span>
+          Wilton Manors, FL
+          <span class="diamond" aria-hidden="true"></span>
+        </p>
+
+        <h1 class="hero__headline">
+          Where Italian Ritual Meets South Florida Soul.
+        </h1>
+
+        <div class="hero__ornament" aria-hidden="true">
+          <span class="diamond diamond--large"></span>
+        </div>
+
+        <p class="hero__body">
+          The Bean Espresso Bar was born from a Toronto upbringing, an Italian family's love of coffee, and the belief that a great café should feel like belonging. On Wilton Drive, we pull each shot with intention, bake every pastry by hand, and open our doors to everyone who walks this neighborhood. Come as you are — stay as long as you like.
+        </p>
+
+        <p class="hero__hours">
+          <i class="ph-thin ph-clock" aria-hidden="true"></i>
+          Mon–Fri 7am–9pm · Sat–Sun 8am–8pm
+        </p>
+      </div>
+    </section>
+
+    <!-- ── RULE ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="section-rule reveal" aria-hidden="true">
+        <hr class="rule-line">
+        <span class="diamond"></span>
+        <hr class="rule-line">
+      </div>
+    </div>
+
+    <!-- ── STORY ──────────────────────────────────────── -->
+    <section class="story" id="story" aria-label="Our Story">
+      <div class="container">
+        <div class="story__inner">
+          <div class="reveal">
+            <p class="eyebrow story__eyebrow">
+              <span class="diamond" aria-hidden="true"></span>
+              Our Story
+              <span class="diamond" aria-hidden="true"></span>
+            </p>
+
+            <blockquote class="story__pull-quote">
+              "I've always known I wanted to have a business of my own."
+            </blockquote>
+            <p class="story__attribution">— Nadia Cutillo, Founder</p>
+
+            <div class="story__body">
+              <p>
+                The Bean Espresso Bar is the vision of Nadia Cutillo — an entrepreneur originally from Toronto, proudly rooted in Italian heritage, who has built a refined and radically welcoming café on Wilton Drive in the heart of Wilton Manors, Florida. What began as a lifelong dream is now a living expression of culture: every cup pulled, every pastry made in-house, every corner of the space designed to slow you down and make you feel at home.
+              </p>
+              <p>
+                The Bean channels the quiet ritual of the classic Italian caffè — where espresso is not a transaction but a pause, where the bar is a gathering point, where warmth is built into the architecture of the day — and brings it to one of South Florida's most vibrant and inclusive communities. This is not a chain. It is not a formula. It is one person's heritage, made into a place for everyone.
+              </p>
+            </div>
+
+            <p class="story__tag">Toronto roots · Italian heritage · Wilton Manors heart</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RULE ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="section-rule reveal" aria-hidden="true">
+        <hr class="rule-line">
+        <span class="diamond"></span>
+        <hr class="rule-line">
+      </div>
+    </div>
+
+    <!-- ── ESPRESSO MENU ───────────────────────────────── -->
+    <section class="menu-section" id="espresso" aria-label="Espresso Bar Menu">
+      <div class="container">
+        <div class="menu-section__header reveal">
+          <p class="eyebrow menu-section__eyebrow">
+            <span class="diamond" aria-hidden="true"></span>
+            Espresso Bar
+            <span class="diamond" aria-hidden="true"></span>
+          </p>
+          <p class="menu-section__subtitle">
+            Pulled fresh to order. Available with whole, oat, almond, or soy.
+          </p>
+        </div>
+
+        <ul class="menu-grid" role="list" aria-label="Espresso drinks">
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Espresso</span>
+              <span class="menu-item__desc">A single, precise shot. The benchmark of everything we do.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Doppio</span>
+              <span class="menu-item__desc">Two shots pulled together — full-bodied, rich, and direct.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Macchiato</span>
+              <span class="menu-item__desc">Espresso "marked" with a touch of steamed milk foam.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Cappuccino</span>
+              <span class="menu-item__desc">Equal parts espresso, steamed milk, and velvety microfoam. The Italian way.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Latte</span>
+              <span class="menu-item__desc">Espresso and gently steamed milk — smooth, long, and easy.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Americano</span>
+              <span class="menu-item__desc">Espresso pulled long with hot water. Clean and bold.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">
+                <span class="diamond" aria-label="Signature item" title="Signature"></span>
+                Caffè Affogato
+              </span>
+              <span class="menu-item__desc">A shot of espresso poured over a scoop of gelato. Dessert. Coffee. Both.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── RULE ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="section-rule reveal" aria-hidden="true">
+        <hr class="rule-line">
+        <span class="diamond"></span>
+        <hr class="rule-line">
+      </div>
+    </div>
+
+    <!-- ── PASTRIES MENU ───────────────────────────────── -->
+    <section class="menu-section" id="pastries" aria-label="In-House Pastries Menu">
+      <div class="container">
+        <div class="menu-section__header reveal">
+          <p class="eyebrow menu-section__eyebrow">
+            <span class="diamond" aria-hidden="true"></span>
+            In-House Pastries
+            <span class="diamond" aria-hidden="true"></span>
+          </p>
+          <p class="menu-section__subtitle">
+            Baked fresh each morning. Rooted in Italian tradition.
+          </p>
+        </div>
+
+        <ul class="menu-grid" role="list" aria-label="Pastries">
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Cornetto</span>
+              <span class="menu-item__desc">The Italian breakfast croissant — lighter than the French, lightly sweet, made for espresso.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Cornetto alla Crema</span>
+              <span class="menu-item__desc">Filled with house pastry cream. The morning standard.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Biscotti</span>
+              <span class="menu-item__desc">Classic almond biscotti, twice-baked and made for dunking.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Sfogliatella</span>
+              <span class="menu-item__desc">Shell-shaped Neapolitan pastry with ricotta and citrus filling.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Ciambella</span>
+              <span class="menu-item__desc">Soft Italian ring cake, subtly lemon-scented. Simple and perfect.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Crostate</span>
+              <span class="menu-item__desc">Open-faced jam tart with buttery shortcrust pastry. Rotating seasonal flavors.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+          <li class="menu-item reveal">
+            <div class="menu-item__left">
+              <span class="menu-item__name">Pane di Casa</span>
+              <span class="menu-item__desc">Housemade bread, sliced and served with butter. Available in the morning.</span>
+            </div>
+            <span class="menu-item__price" aria-label="Price">—</span>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── RULE ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="section-rule reveal" aria-hidden="true">
+        <hr class="rule-line">
+        <span class="diamond"></span>
+        <hr class="rule-line">
+      </div>
+    </div>
+
+    <!-- ── FIND US ─────────────────────────────────────── -->
+    <section class="find-us" id="find-us" aria-label="Find Us">
+      <div class="container">
+        <p class="eyebrow find-us__eyebrow reveal">
+          <span class="diamond" aria-hidden="true"></span>
+          Find Us
+          <span class="diamond" aria-hidden="true"></span>
+        </p>
+
+        <div class="find-us__grid">
+
+          <div class="find-us__block reveal">
+
+            <div class="find-us__item">
+              <i class="ph-thin ph-map-pin" aria-hidden="true"></i>
+              <div>
+                <p class="find-us__label">Location</p>
+                <address class="find-us__value" style="font-style:normal;">
+                  2151 Wilton Drive<br>
+                  Wilton Manors, FL
+                </address>
+              </div>
+            </div>
+
+            <div class="find-us__item">
+              <i class="ph-thin ph-clock" aria-hidden="true"></i>
+              <div>
+                <p class="find-us__label">Hours</p>
+                <p class="find-us__value">
+                  Mon–Fri &nbsp; 7am–9pm<br>
+                  Sat–Sun &nbsp; 8am–8pm
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="find-us__social reveal">
+            <p class="find-us__social-label">Follow Along</p>
+            <a
+              class="find-us__social-link"
+              href="https://www.instagram.com/thebeanespressobar"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="The Bean Espresso Bar on Instagram"
+            >
+              <i class="ph-thin ph-instagram-logo" aria-hidden="true"></i>
+              @thebeanespressobar
+            </a>
+            <p class="find-us__social-note">
+              Daily specials, seasonal pastries, and a little bit of Wilton Drive life — all on Instagram.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer__name">THE BEAN</p>
+    <p class="footer__sub">Espresso Bar · Wilton Manors</p>
+    <div class="footer__diamonds" aria-hidden="true">
+      <span class="diamond"></span>
+      <span class="diamond diamond--large"></span>
+      <span class="diamond"></span>
+    </div>
+    <p class="footer__copyright">© 2025 The Bean Espresso Bar. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ── NAV SCROLL ──────────────────────────────────────
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ── MOBILE MENU ─────────────────────────────────────
+    const hamburger = document.querySelector('.nav__hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const open = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!open));
+        mobileNav.classList.toggle('open', !open);
+      });
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.setAttribute('aria-expanded', 'false');
+          mobileNav.classList.remove('open');
+        });
+      });
+    }
+
+    // ── SCROLL REVEAL ───────────────────────────────────
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    } else {
+      // Fallback: show everything
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
