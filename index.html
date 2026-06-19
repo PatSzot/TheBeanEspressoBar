@@ -302,9 +302,6 @@
     }
 
     /* ──────────────────────────────────────────────────── */
-    /* REDUCED MOTION                                        */
-    /* ──────────────────────────────────────────────────── */
-    /* ──────────────────────────────────────────────────── */
     /* PARALLAX PHOTOS                                       */
     /* ──────────────────────────────────────────────────── */
     .parallax-stage {
@@ -329,28 +326,36 @@
       object-fit: cover;
     }
 
-    /* Top-right — espresso pastries window */
+    /* Figma: left:887px top:173px — hero top-right, landscape */
     .photo-1 {
-      width: clamp(220px, 24vw, 380px);
-      aspect-ratio: 16 / 11;
-      right: 3%;
+      width: clamp(220px, 30.4vw, 438px);
+      aspect-ratio: 438 / 285;
+      right: 8%;
       top: 12vh;
     }
 
-    /* Left — iced latte plants */
+    /* Figma: left:103px top:519px — hero left-middle, portrait */
     .photo-2 {
-      width: clamp(170px, 19vw, 300px);
-      aspect-ratio: 3 / 4;
-      left: 3%;
-      top: 42vh;
+      width: clamp(170px, 22.5vw, 324px);
+      aspect-ratio: 324 / 375;
+      left: 7%;
+      top: 37vh;
     }
 
-    /* Lower-left — lifestyle flatlay, dips into menu zone */
+    /* Figma: left:56px top:2557px — menu lower-left, landscape */
     .photo-3 {
-      width: clamp(150px, 17vw, 260px);
+      width: clamp(150px, 22.5vw, 324px);
+      aspect-ratio: 324 / 210;
+      left: 4%;
+      top: 178vh;
+    }
+
+    /* 4th photo — menu right side, balances photo-3 */
+    .photo-4 {
+      width: clamp(150px, 19vw, 280px);
       aspect-ratio: 4 / 3;
-      left: 2%;
-      top: 108vh;
+      right: 5%;
+      top: 120vh;
     }
 
     @media (max-width: 767px) {
@@ -406,21 +411,32 @@
     </main>
 
     <!-- ── PARALLAX PHOTOS ────────────────────────────── -->
-    <div class="parallax-photo photo-1" data-speed="0.65" aria-hidden="true">
+    <!-- speed = fraction of scrollY applied as translateY(down).
+         Lower speed → photo moves up faster on screen (exits sooner).
+         Upper photos get lower speeds so they clear before lower ones arrive. -->
+
+    <div class="parallax-photo photo-1" data-speed="0.15" aria-hidden="true">
       <picture>
         <source srcset="photos/espresso-pastries-window.webp" type="image/webp">
         <img src="photos/espresso-pastries-window.jpg" alt="">
       </picture>
     </div>
 
-    <div class="parallax-photo photo-2" data-speed="0.78" aria-hidden="true">
+    <div class="parallax-photo photo-2" data-speed="0.38" aria-hidden="true">
       <picture>
         <source srcset="photos/iced-latte-plants.webp" type="image/webp">
         <img src="photos/iced-latte-plants.jpg" alt="">
       </picture>
     </div>
 
-    <div class="parallax-photo photo-3" data-speed="0.55" aria-hidden="true">
+    <div class="parallax-photo photo-4" data-speed="0.52" aria-hidden="true">
+      <picture>
+        <source srcset="photos/iced-latte-logo.webp" type="image/webp">
+        <img src="photos/iced-latte-logo.jpg" alt="">
+      </picture>
+    </div>
+
+    <div class="parallax-photo photo-3" data-speed="0.67" aria-hidden="true">
       <picture>
         <source srcset="photos/lifestyle-table-flatlay.webp" type="image/webp">
         <img src="photos/lifestyle-table-flatlay.jpg" alt="">
