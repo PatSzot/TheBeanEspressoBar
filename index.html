@@ -117,41 +117,43 @@
     /* ──────────────────────────────────────────────────── */
     .menu-section {
       background: var(--color-surface);
-      padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 3vw, 2rem);
+      padding: 81px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: clamp(1.5rem, 3vw, 2.5rem);
+      gap: 40px;
     }
 
+    /* "MENU" label — 56px, tight tracking, border-bottom only */
     .menu-heading {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(1.75rem, 4vw, 3.5rem);
+      font-size: clamp(1.75rem, 3.9vw, 3.5rem);
       letter-spacing: -0.01em;
       color: var(--color-text);
       text-align: center;
       border-bottom: 10px solid var(--color-border);
       width: 100%;
-      padding-bottom: clamp(1rem, 2vw, 1.5rem);
+      padding-bottom: 16px;
       line-height: 1;
     }
 
+    /* Each drink — 80px, 0.2em tracking, fixed 72px row height */
     .menu-item {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(2rem, 6vw, 5rem);
+      font-size: clamp(2rem, 5.56vw, 5rem);
       letter-spacing: 0.2em;
       color: var(--color-text);
       text-align: center;
       border-bottom: 10px solid var(--color-border);
       width: 100%;
-      padding-block: clamp(0.75rem, 1.5vw, 1.25rem);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       line-height: 1;
-    }
-
-    .menu-item:last-child {
-      border-bottom: none;
+      flex-shrink: 0;
     }
 
     /* ──────────────────────────────────────────────────── */
