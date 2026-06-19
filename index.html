@@ -14,6 +14,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="The Bean OpenGraph.jpg">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="TheBean-FavIcon.png">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -301,47 +304,130 @@
     /* ──────────────────────────────────────────────────── */
     /* REDUCED MOTION                                        */
     /* ──────────────────────────────────────────────────── */
+    /* ──────────────────────────────────────────────────── */
+    /* PARALLAX PHOTOS                                       */
+    /* ──────────────────────────────────────────────────── */
+    .parallax-stage {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parallax-photo {
+      position: absolute;
+      z-index: 10;
+      pointer-events: none;
+      border: 10px solid var(--color-border);
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .parallax-photo picture,
+    .parallax-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Top-right — espresso pastries window */
+    .photo-1 {
+      width: clamp(220px, 24vw, 380px);
+      aspect-ratio: 16 / 11;
+      right: 3%;
+      top: 12vh;
+    }
+
+    /* Left — iced latte plants */
+    .photo-2 {
+      width: clamp(170px, 19vw, 300px);
+      aspect-ratio: 3 / 4;
+      left: 3%;
+      top: 42vh;
+    }
+
+    /* Lower-left — lifestyle flatlay, dips into menu zone */
+    .photo-3 {
+      width: clamp(150px, 17vw, 260px);
+      aspect-ratio: 4 / 3;
+      left: 2%;
+      top: 108vh;
+    }
+
+    @media (max-width: 767px) {
+      .parallax-photo { display: none; }
+    }
+
+    /* ──────────────────────────────────────────────────── */
+    /* REDUCED MOTION                                        */
+    /* ──────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; }
       .reveal { opacity: 1; transform: none; }
+      .parallax-photo { will-change: auto; }
     }
   </style>
 </head>
 
 <body>
 
-  <main id="main">
+  <div class="parallax-stage">
 
-    <!-- ── HERO ───────────────────────────────────────── -->
-    <section class="hero" aria-label="Hero">
-      <img
-        src="TheBean-Symbol-OnLight.svg"
-        class="hero__symbol reveal"
-        alt=""
-        aria-hidden="true"
-      >
-      <img
-        src="TheBean-Wordmark-OnLight.svg"
-        class="hero__wordmark reveal"
-        alt="The Bean Espresso Bar"
-      >
-      <p class="hero__sub reveal"><em>Italian ritual</em> meets Wilton Manors heart</p>
-    </section>
+    <main id="main">
 
-    <!-- ── MENU ───────────────────────────────────────── -->
-    <section class="menu-section" id="menu" aria-label="Menu">
-      <div class="menu-heading reveal">MENU</div>
-      <div class="menu-item reveal">ESPRESSO</div>
-      <div class="menu-item reveal">DOPPIO</div>
-      <div class="menu-item reveal">MACCHIATO</div>
-      <div class="menu-item reveal">CAPPUCCINO</div>
-      <div class="menu-item reveal">LATTE</div>
-      <div class="menu-item reveal">AMERICANO</div>
-      <div class="menu-item reveal">COFFEE</div>
-      <div class="menu-item reveal">AFFAGATO</div>
-    </section>
+      <!-- ── HERO ───────────────────────────────────────── -->
+      <section class="hero" aria-label="Hero">
+        <img
+          src="TheBean-Symbol-OnLight.svg"
+          class="hero__symbol reveal"
+          alt=""
+          aria-hidden="true"
+        >
+        <img
+          src="TheBean-Wordmark-OnLight.svg"
+          class="hero__wordmark reveal"
+          alt="The Bean Espresso Bar"
+        >
+        <p class="hero__sub reveal"><em>Italian ritual</em> meets Wilton Manors heart</p>
+      </section>
 
-  </main>
+      <!-- ── MENU ───────────────────────────────────────── -->
+      <section class="menu-section" id="menu" aria-label="Menu">
+        <div class="menu-heading reveal">MENU</div>
+        <div class="menu-item reveal">ESPRESSO</div>
+        <div class="menu-item reveal">DOPPIO</div>
+        <div class="menu-item reveal">MACCHIATO</div>
+        <div class="menu-item reveal">CAPPUCCINO</div>
+        <div class="menu-item reveal">LATTE</div>
+        <div class="menu-item reveal">AMERICANO</div>
+        <div class="menu-item reveal">COFFEE</div>
+        <div class="menu-item reveal">AFFAGATO</div>
+      </section>
+
+    </main>
+
+    <!-- ── PARALLAX PHOTOS ────────────────────────────── -->
+    <div class="parallax-photo photo-1" data-speed="0.65" aria-hidden="true">
+      <picture>
+        <source srcset="photos/espresso-pastries-window.webp" type="image/webp">
+        <img src="photos/espresso-pastries-window.jpg" alt="">
+      </picture>
+    </div>
+
+    <div class="parallax-photo photo-2" data-speed="0.78" aria-hidden="true">
+      <picture>
+        <source srcset="photos/iced-latte-plants.webp" type="image/webp">
+        <img src="photos/iced-latte-plants.jpg" alt="">
+      </picture>
+    </div>
+
+    <div class="parallax-photo photo-3" data-speed="0.55" aria-hidden="true">
+      <picture>
+        <source srcset="photos/lifestyle-table-flatlay.webp" type="image/webp">
+        <img src="photos/lifestyle-table-flatlay.jpg" alt="">
+      </picture>
+    </div>
+
+  </div>
 
   <!-- ── FOOTER ─────────────────────────────────────── -->
   <footer class="footer" role="contentinfo">
@@ -394,6 +480,30 @@
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    // ── PARALLAX ──────────────────────────────────────────
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const parallaxPhotos = Array.from(document.querySelectorAll('.parallax-photo'));
+
+    if (!prefersReducedMotion && parallaxPhotos.length) {
+      let ticking = false;
+
+      function updateParallax() {
+        const scrollY = window.scrollY;
+        parallaxPhotos.forEach(photo => {
+          const speed = parseFloat(photo.dataset.speed) || 0.65;
+          photo.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+        });
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
     }
   </script>
 
