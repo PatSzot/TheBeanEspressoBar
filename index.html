@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700&family=Bona+Nova:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
@@ -31,7 +31,7 @@
       --color-border:    #241F1E;
 
       --font-display: 'Hanken Grotesk', sans-serif;
-      --font-heritage: 'Bona Nova SC', serif;
+      --font-heritage: 'Bona Nova', serif;
 
       --grid-max:    1160px;
       --grid-gutter: clamp(1.5rem, 5vw, 4rem);
@@ -97,7 +97,7 @@
       height: auto;
     }
 
-    /* 40px / -1.6px tracking — both Figma-exact */
+    /* 40px / -1.6px tracking — Figma-exact. max-width mirrors Figma's 390px container */
     .hero__sub {
       font-family: var(--font-heritage);
       font-size: clamp(1.4rem, 2.78vw, 2.5rem);
@@ -105,8 +105,9 @@
       font-style: normal;
       color: var(--color-text);
       letter-spacing: -0.04em;
-      line-height: 1.2;
+      line-height: 1.35;
       margin-top: clamp(1rem, 3vw, 2.5rem);
+      max-width: 390px;
     }
 
     .hero__sub em {
@@ -158,64 +159,6 @@
     }
 
     /* ──────────────────────────────────────────────────── */
-    /* FIND US                                               */
-    /* ──────────────────────────────────────────────────── */
-    .find-us {
-      background: var(--color-bg);
-      padding: clamp(4rem, 8vw, 7rem) var(--grid-gutter);
-    }
-
-    .find-us__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(3rem, 6vw, 5rem);
-    }
-
-    .find-us__label {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-text);
-      margin-bottom: 0.75rem;
-    }
-
-    .find-us__value {
-      font-family: var(--font-heritage);
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      font-weight: 400;
-      color: var(--color-text);
-      line-height: 1.7;
-    }
-
-    .find-us__item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .find-us__item i {
-      font-size: 1.25rem;
-      color: var(--color-text);
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-
-    .find-us__social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-heritage);
-      font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: var(--color-text);
-      transition: opacity 0.15s ease-out;
-    }
-
-    .find-us__social-link:hover { opacity: 0.65; }
-
-    /* ──────────────────────────────────────────────────── */
     /* FOOTER                                                */
     /* ──────────────────────────────────────────────────── */
     .footer {
@@ -249,19 +192,48 @@
       flex-shrink: 0;
     }
 
-    .footer__copyright {
-      display: none; /* hidden — handled by Instagram handle */
+    .footer__info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      width: 204px;
     }
+
+    .footer__info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .footer__info-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-footer-fg);
+      opacity: 0.55;
+    }
+
+    .footer__info-value {
+      font-family: var(--font-heritage);
+      font-style: italic;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+      color: var(--color-footer-fg);
+      line-height: 1.5;
+    }
+
+    .footer__info-value a {
+      color: inherit;
+      transition: opacity 0.15s ease-out;
+    }
+
+    .footer__info-value a:hover { opacity: 0.7; }
 
     /* ──────────────────────────────────────────────────── */
     /* RESPONSIVE                                            */
     /* ──────────────────────────────────────────────────── */
-    @media (min-width: 900px) {
-      .find-us__grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
     @media (max-width: 599px) {
       .footer {
         flex-direction: column;
@@ -301,9 +273,7 @@
         class="hero__wordmark reveal"
         alt="The Bean Espresso Bar"
       >
-      <p class="hero__sub reveal">
-        <em>Italian ritual</em> meets Wilton Manors heart
-      </p>
+      <p class="hero__sub reveal"><em>Italian ritual</em> meets Wilton Manors heart</p>
     </section>
 
     <!-- ── MENU ───────────────────────────────────────── -->
@@ -319,59 +289,6 @@
       <div class="menu-item reveal">AFFAGATO</div>
     </section>
 
-    <!-- ── FIND US ─────────────────────────────────────── -->
-    <section class="find-us" id="find-us" aria-label="Find Us">
-      <div class="container">
-        <div class="find-us__grid">
-
-          <div class="reveal">
-            <div class="find-us__item">
-              <i class="ph-thin ph-map-pin" aria-hidden="true"></i>
-              <div>
-                <p class="find-us__label">Location</p>
-                <address class="find-us__value" style="font-style:normal;">
-                  2151 Wilton Drive<br>
-                  Wilton Manors, FL
-                </address>
-              </div>
-            </div>
-          </div>
-
-          <div class="reveal">
-            <div class="find-us__item">
-              <i class="ph-thin ph-clock" aria-hidden="true"></i>
-              <div>
-                <p class="find-us__label">Hours</p>
-                <p class="find-us__value">
-                  Mon–Fri &nbsp; 7am–9pm<br>
-                  Sat–Sun &nbsp; 8am–8pm
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="reveal">
-            <div class="find-us__item">
-              <i class="ph-thin ph-instagram-logo" aria-hidden="true"></i>
-              <div>
-                <p class="find-us__label">Instagram</p>
-                <a
-                  class="find-us__social-link"
-                  href="https://www.instagram.com/thebeanespressobar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="The Bean Espresso Bar on Instagram"
-                >
-                  @thebeanespressobar
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ── FOOTER ─────────────────────────────────────── -->
@@ -382,15 +299,33 @@
       class="footer__logo"
       alt="The Bean Espresso Bar"
     >
-    <p class="footer__tagline">
-      <a
-        href="https://www.instagram.com/thebeanespressobar"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="The Bean on Instagram"
-        style="color:inherit;"
-      >@TheBeanEspressoBar</a>
-    </p>
+    <div class="footer__info">
+      <div class="footer__info-item">
+        <p class="footer__info-label">Location</p>
+        <address class="footer__info-value" style="font-style:italic;">
+          2151 Wilton Drive<br>
+          Wilton Manors, FL
+        </address>
+      </div>
+      <div class="footer__info-item">
+        <p class="footer__info-label">Hours</p>
+        <p class="footer__info-value">
+          Mon–Fri &nbsp; 7am–9pm<br>
+          Sat–Sun &nbsp; 8am–8pm
+        </p>
+      </div>
+      <div class="footer__info-item">
+        <p class="footer__info-label">Instagram</p>
+        <p class="footer__info-value">
+          <a
+            href="https://www.instagram.com/thebeanespressobar"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="The Bean Espresso Bar on Instagram"
+          >@thebeanespressobar</a>
+        </p>
+      </div>
+    </div>
   </footer>
 
   <script>
