@@ -85,6 +85,7 @@
 
     /* ──────────────────────────────────────────────────── */
     /* HERO                                                  */
+
     /* ──────────────────────────────────────────────────── */
     .hero {
       min-height: 100svh;
@@ -167,6 +168,28 @@
       justify-content: center;
       line-height: 1;
       flex-shrink: 0;
+    }
+
+    /* Spacer row between items and pastries label */
+    .menu-spacer {
+      height: 56px;
+      border-bottom: 10px solid var(--color-border);
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    /* AND IN-HOUSE PASTRIES — same style as heading on desktop */
+    .menu-pastries {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3.9vw, 3.5rem);
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      text-align: center;
+      border-bottom: 10px solid var(--color-border);
+      width: 100%;
+      padding-bottom: 16px;
+      line-height: 1;
     }
 
     /* ──────────────────────────────────────────────────── */
@@ -271,6 +294,26 @@
 
       .menu-section {
         padding-inline: 1rem;
+        gap: 30px;
+      }
+
+      .menu-heading {
+        font-size: 40px;
+        letter-spacing: -0.4px;
+      }
+
+      .menu-item {
+        font-size: 40px;
+        letter-spacing: 4.4px;
+        height: 48px;
+      }
+
+      .menu-pastries {
+        font-size: 40px;
+        letter-spacing: -0.4px;
+        border-bottom: none;
+        padding-bottom: 0;
+        max-width: 283px;
       }
 
       .footer {
@@ -406,6 +449,8 @@
         <div class="menu-item reveal">AMERICANO</div>
         <div class="menu-item reveal">COFFEE</div>
         <div class="menu-item reveal">AFFAGATO</div>
+        <div class="menu-spacer reveal"></div>
+        <div class="menu-pastries reveal">AND IN-HOUSE PASTRIES</div>
       </section>
 
     </main>
